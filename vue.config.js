@@ -11,6 +11,14 @@ module.exports = defineConfig({
         pathRewrite: {
           '^/user': ''
         }
+      },
+      '/mail': {
+        target: 'http://127.0.0.1:8501',
+        ws: false,
+        changeOrigin: true
+        // pathRewrite: {
+        //   '^/mail': ''
+        // }
       }
     }
   }
