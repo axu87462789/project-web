@@ -4,7 +4,7 @@ module.exports = defineConfig({
   devServer: {
     port: 8000,
     proxy: {
-      '/user': {
+      '^/user': {
         target: 'http://127.0.0.1:8500',
         ws: false,
         changeOrigin: true,
@@ -12,13 +12,13 @@ module.exports = defineConfig({
           '^/user': ''
         }
       },
-      '/mail': {
-        target: 'http://127.0.0.1:8501',
+      '^/api': {
+        target: 'http://127.0.0.1:10010',
         ws: false,
-        changeOrigin: true
-        // pathRewrite: {
-        //   '^/mail': ''
-        // }
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
       }
     }
   }

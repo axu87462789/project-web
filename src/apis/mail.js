@@ -1,7 +1,7 @@
 import httpRequest from '@/request/index'
 
 const api = {
-  sendMail: '/mail/send' // 邮件发送
+  sendMail: '/mail/mail/send' // 邮件发送
 }
 
 export function sendMail(data){

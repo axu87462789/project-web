@@ -26,7 +26,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { sendMailCode } from '@/apis/user'
+import { sendMailCode, loginMailCode } from '@/apis/user'
 
 const ruleFormRef = ref(null)
 
@@ -93,7 +93,12 @@ const sendEmail = (formEl) => {
 const mailCodeLogin = (formEl) =>{
   formEl.validate(valid =>{
     if(valid){
-      console.log('请求登录')
+      const data = {
+        ...form
+      }
+      loginMailCode(data).then(res =>{
+        console.log(res)
+      })
     }
   })
 }
